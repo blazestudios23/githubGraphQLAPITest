@@ -32,6 +32,11 @@ const SearchBar = ({ setSearchValue }: { setSearchValue: Function }) => {
       minLength={2}
       clearButton
       onChange={(selected) => setSearchValue(selected[0])}
+      onKeyDown={(e: any) => {
+        if (e.key === "Enter") {
+          setSearchValue(e.target.value);
+        }
+      }}
     />
   );
 };

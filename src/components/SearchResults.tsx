@@ -28,9 +28,9 @@ const SearchResults = ({ searchValue }: { searchValue: string | null }) => {
   } else if (error) {
     return <div>{error.message}</div>;
   } else if (data) {
-    return data.search.edges.map((i: { node: Issue }) => (
-      <Card key={i.node.id} issue={i.node} />
-    ));
+    return data.search.edges
+      .filter((i: { node: Issue }) => i.node.id)
+      .map((i: { node: Issue }) => <Card key={i.node.id} issue={i.node} />);
   }
 
   return null;

@@ -12,9 +12,9 @@ import {
 import { Issue } from "../generated/graphql";
 
 const IssueCard = ({ issue }: { issue: Issue }) => {
-  const { author, title, bodyText, publishedAt, labels } = issue;
+  const { author, id, title, bodyText, publishedAt, labels } = issue;
   return (
-    <Card>
+    <Card key={`card-${id}`}>
       <Row>
         <Col sm="3">
           <CardImg top width="50%" src={author?.avatarUrl} alt="" />
